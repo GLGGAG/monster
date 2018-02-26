@@ -1,0 +1,38 @@
+<div class="layui-colla-content"  v-for="u in userList">
+    <ul class="layui-timeline">
+        <li class="layui-timeline-item">
+            <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+            <div class="layui-timeline-content layui-text">
+                <h3 class="layui-timeline-title">{{u.createTime | time}}</h3>
+                <table class="layui-table">
+                    <colgroup>
+                        <col width="100">
+                        <col width="100">
+                        <col width="100">
+                        <col width="100">
+                        <col width="100">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>当天工作内容</th>
+                        <th>未完成工作原因</th>
+                        <th>次日工作计划</th>
+                        <th>风险点和对策</th>
+                        <th>备注</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{u.todayContent}}</td>
+                        <td>{{u.incompleteCause}}</td>
+                        <td>{{u.morrowPlan}}</td>
+                        <td>{{u.riskPoint}}</td>
+                        <td>{{u.remark}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </li>
+    </ul>
+    <div id="page-all" class="text-center"></div>
+</div>

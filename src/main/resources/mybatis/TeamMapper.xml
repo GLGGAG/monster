@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.orange.mapper.TeamMapper">
+
+
+
+
+    <delete id="deletedUserByUserNoTeamNo">
+        DELETE
+          FROM
+              mon_team
+          WHERE
+              user_no =#{userNo}
+          AND
+              team_no=#{teamNo}
+
+    </delete>
+
+
+    <select id="selectTeamVoGroupByTeamNo" resultType="com.orange.vos.TeamVo">
+
+        SELECT
+            m.team_no    AS  'teamNo',
+            m.team_name  AS  'teamName'
+        FROM
+            mon_team m
+        GROUP BY
+            m.team_no;
+    </select>
+
+
+
+    <insert id="insertTeam">
+        INSERT INTO
+          mon_team(user_no,team_no,team_name)
+        VALUES (#{userNo},#{teamNo},#{teamName})
+    </insert>
+</mapper>
+

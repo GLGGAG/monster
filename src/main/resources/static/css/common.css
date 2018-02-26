@@ -1,0 +1,38 @@
+.side {
+    margin: 1px;
+}
+.text-center {
+    text-align: center!important;
+}
+.layui-tab-title {
+    height: 60px!important;
+    border-bottom: none!important;
+    margin-top: 20px;
+}
+.layui-tab {
+    text-align: center!important;
+}
+.layui-layout-admin .layui-logo{
+    color: rgb(178, 198, 108)!important;
+    left: 44%!important;
+    font-size: 18px!important;
+}
+.layui-tab-title li {
+    font-size: 17px!important;
+}
+.layui-form-pane .layui-form-text .layui-textarea {
+    min-height: 80px!important;
+}
+.layui-form-pane .layui-form-text .layui-form-label {
+    color: #009688!important;
+    font-size: 14px;
+}
+.layui-table th {
+    color: #009688!important;
+}
+.area {
+    margin-left: 40px!important;
+}
+.tab-ul {
+    left: 42%!important;
+}

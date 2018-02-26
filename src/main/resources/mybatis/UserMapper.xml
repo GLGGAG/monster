@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.orange.mapper.UserMapper">
+
+
+    <resultMap id="userResultMap" type="com.orange.entity.User">
+        <id property="id" column="id"></id>
+
+        <result property="userName"         column="user_name"></result>
+        <result property="userNo"           column="user_no"></result>
+        <result property="phone"            column="phone"></result>
+        <result property="passWord"         column="user_pass_word"></result>
+        <result property="teamNo"           column="team_no"></result>
+        <result property="userGradeType"    column="user_grade_type"></result>
+
+        <result property="createTime"       column="create_ime"></result>
+        <result property="updateTime"       column="update_time"></result>
+        <result property="deleted"           column="deleted"></result>
+        <result property="version"           column="version"></result>
+    </resultMap>
+
+    <resultMap id="teamUserResultMap" type="com.orange.vos.TeamUserVo">
+        <result property="teamName" column="team_name"></result>
+        <collection property="teamUser" column="team_no" select="com.orange.mapper.UserMapper.selectUserListByTeamNo"/>
+    </resultMap>
+
+
+    <resultMap id="teamUserResultMapExcludeUserNo" type="com.orange.vos.TeamUserVo">
+        <result property="teamName" column="team_name"></result>
+        <collection property="teamUser" column="team_no"  select="com.orange.mapper.UserMapper.selectUserListByTeamNoExcludeUserNo"/>
+    </resultMap>
+
+
+
+
+
+
+
+    <insert id="insertUser">
+        INSERT INTO
+                mon_user
+              (user_name,user_no,phone,pass_word,team_no,user_grade_type)
+        VALUES
+            (#{userName},#{userNo},#{phone},#{passWord},#{teamNo},#{userGradeType})
+    </insert>
+
+
+    <select id="selectUserByUserPhone" resultMap="userResultMap">
+        SELECT
+             *
+         FROM
+             mon_user u
+         WHERE
+             u.phone=#{userPhone}
+         AND
+             u.deleted=false
+    </select>
+
+
+    <select id="selectUserListByTeamNoExcludeUserNo" resultMap="userResultMap">
+        SELECT
+            *
+        FROM
+            mon_user u
+        WHERE
+            u.team_no=#{teamNo}
+        AND
+            u.deleted=false
+        AND
+            u.user_no !=#{userNo}
+    </select>
+
+    <delete id="deletedUserByUserNo">
+        DELETE
+         FROM
+           mon_user
+         WHERE
+            user_no=#{userNo}
+    </delete>
+
+
+    <select id="selectTeamUserList" resultMap="teamUserResultMap">
+        SELECT
+          m.team_no,m.team_name
+        FROM
+          mon_team m
+        WHERE
+           m.deleted=FALSE
+         GROUP by m.team_no
+    </select>
+
+
+
+    <select id="selectTeamUserListExcludeUserNo" resultMap="teamUserResultMapExcludeUserNo">
+        SELECT
+        m.team_no,m.team_name
+        FROM
+        mon_team m
+        WHERE
+        m.deleted=FALSE
+        GROUP by m.team_no
+    </select>
+
+
+
+    <select id="selectUserListByTeamNo" resultMap="userResultMap">
+          SELECT
+            *
+        FROM
+            mon_user u
+        WHERE
+            u.team_no=#{teamNo}
+        AND
+            u.deleted=false
+    </select>
+
+
+
+
+
+
+    <select id="selectUserByUserNo" resultMap="userResultMap">
+        SELECT
+             *
+         FROM
+             mon_user u
+         WHERE
+             u.user_no=#{userNo}
+         AND
+             u.deleted=false
+    </select>
+
+</mapper>
+

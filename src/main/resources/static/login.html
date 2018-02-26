@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>小怪兽</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+    <link rel="stylesheet" type="text/css" href="angular/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="angular/css/structure.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
+
+    <script type="text/javascript" src="angular/js/angular.min.js"></script>
+</head>
+<body ng-app="loginApp">
+
+    <form class="box login" ng-controller="loginController">
+        <fieldset class="boxBody">
+          <label>Username :</label>
+          <input  ng-model="phone" type="text" tabindex="1" placeholder="Please enter your phone" required>
+          <label>Password :</label>
+          <input ng-model="password" type="password" tabindex="2" required placeholder="Please enter your pwd">
+        </fieldset>
+        <footer>
+          <label>Welcome to small monster</label>
+          <input ng-click="loginClick()" type="button" class="btnLogin" value="Login" tabindex="4">
+        </footer>
+    </form>
+    <footer id="login_foot">
+      <a  target="_blank" href="https://item.taobao.com/item.htm?spm=a230r.1.14.71.952847fn9WTkQ&id=546769437985&ns=1&abbucket=20#detail">Copyright © 2017-2020 monster</a>
+    </footer>
+    <script type="text/javascript" src="layui/layui.js"></script>
+    <script type="text/javascript" src="js/constantHepler.js"></script>
+    <script type="text/javascript" src="angular/js/login.js"></script>
+</body>
+</html>

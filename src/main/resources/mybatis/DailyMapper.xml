@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.orange.mapper.DailyMapper">
+
+
+    <resultMap id="dailyResultMap" type="com.orange.entity.Daily">
+        <id property="id" column="id"></id>
+
+        <result property="userNo"  column="user_no"></result>
+        <result property="todayContent" column="today_content"></result>
+        <result property="incompleteCause" column="incomplete_cause"></result>
+        <result property="morrowPlan"      column="morrow_plan"></result>
+        <result property="riskPoint"       column="risk_point"></result>
+        <result property="remark"           column="remark"></result>
+
+        <result property="createTime" column="create_time"></result>
+        <result property="updateTime" column="update_time"></result>
+        <result property="deleted"    column="deleted"></result>
+        <result property="version"     column="version"></result>
+    </resultMap>
+
+
+
+    <update id="updateDailyContentById">
+          UPDATE
+             mon_daily
+          SET
+              today_content=#{todayContent},
+              incomplete_cause=#{incompleteCause},
+              morrow_plan=#{morrowPlan},
+              risk_point=#{riskPoint},
+              remark=#{remark},
+              update_time=now()
+           WHERE
+              id=#{id}
+    </update>
+
+
+    <select id="selectDailyContentListByUserNo" resultMap="dailyResultMap">
+      SELECT
+          *
+      FROM
+          mon_daily m
+      WHERE
+          m.user_no=#{userNo}
+      AND
+          m.deleted=false
+      ORDER BY
+          m.create_time  desc
+    </select>
+    <select id="selectTodayDailyContentByUserNo" resultMap="dailyResultMap">
+        SELECT
+            *
+        FROM
+            mon_daily m
+        WHERE
+            m.user_no=#{userNo}
+            AND
+            m.deleted=false
+            AND
+               m.create_time>=#{date}
+    </select>
+
+
+    <insert id="insertDailyContent">
+
+        INSERT INTO
+            mon_daily
+                (user_no, today_content,incomplete_cause,morrow_plan,risk_point,remark)
+        VALUES
+                (#{userNo},#{todayContent},#{incompleteCause},#{morrowPlan},#{riskPoint},#{remark})
+    </insert>
+
+
+</mapper>
+
+
+
+
+

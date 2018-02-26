@@ -1,0 +1,67 @@
+body, html {padding: 0; margin: 0;}
+
+/*头部样式*/
+.content_header{
+    background-color: #2E2D3C;
+}
+.content_header .header_logo{
+    color: rgb(178, 198, 108)!important;
+    font-size: 18px!important;
+    margin-left: 43%;
+}
+/*tab区域*/
+.content_body{
+    text-align: center;
+}
+
+.layui-tab-content .daily_content{
+    margin-left: 5%;
+}
+
+
+.layui-table th, .layui-form-pane .layui-form-text .layui-form-label {
+    color: #009688!important;
+    font-size: 14px;
+    text-align: center;
+}
+
+.page_bar{
+    text-align: center!important;
+}
+
+
+#daily_write_btn{
+    text-align: center;
+    margin-left: 45%;
+}
+#daily_write_content,#daily_review_content{
+   display: none;
+}
+.side {
+    margin: 1px;
+}
+.post,.team {
+    height: 38px!important;
+    width: 200px!important;
+    border-radius: 2px!important;
+    border-color: #e6e6e6!important;
+}
+.m-b-t {
+    margin: 20px auto;
+}
+.text-center {
+    text-align: center!important;
+}
+
+.fly-nav-user {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    color: #A9B7B7;
+}
+.layui-layout-admin .layui-logo{
+    color: rgb(178, 198, 108)!important;
+    left: 45%!important;
+    font-size: 18px!important;
+}

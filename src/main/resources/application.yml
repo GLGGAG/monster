@@ -1,0 +1,29 @@
+
+online: false
+
+database:
+  url:  jdbc:mysql://192.168.0.35:3306/monster?useSSL=false&autoReconnect=true&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&transformedBitIsBoolean=true&zeroDateTimeBehavior=convertToNull&statementInterceptors=com.orange.interceptor.ShowSqlInterceptor
+  userName: root
+  password: tcxr
+  filters: stat,wall
+
+spring:
+# 配置下面两个值将会走到 ControllerAdvice 全局里面去
+# org.springframework.boot.autoconfigure.web.WebMvcProperties
+  mvc.throw-exception-if-no-handler-found: false
+# org.springframework.boot.autoconfigure.web.ResourceProperties
+  resources.add-mappings: true
+logging:
+server:
+  port: 9000
+
+
+
+
+
+
+
+
+
+
+
